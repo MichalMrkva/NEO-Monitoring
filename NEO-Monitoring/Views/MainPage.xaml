@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NEO_Monitoring.MainPage">
+
+    <ScrollView>
+        <StackLayout>
+            <Image VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   Source="drawable/NASA_Worm_logo.png"
+                   HeightRequest="35"
+                   Margin="5,5"
+                   />
+            <DatePicker Date="{Binding Date}"
+                        Background="#d14f4f"
+                        Format="yyyy-MM-dd"
+                        TextColor="White"
+                        FontFamily="Helvetica Neue"
+                        FontSize="30"
+                        Margin="5,0,5,10"
+                   />
+            <Frame BackgroundColor="#d14f4f"
+                   Margin="5,0"
+
+                   CornerRadius="30">
+                <Label
+                    Text="{Binding Element_count_displayed}"
+                    FontSize="20"
+                    TextColor="White"
+                    />
+            </Frame>
+            
+            <Frame
+                BackgroundColor="Gray"
+                Margin="5,2"
+                CornerRadius="30"
+                VerticalOptions="StartAndExpand">
+                <FlexLayout Grid.Row="1"
+                            x:Name="FlexTypes"
+                            Wrap="Wrap"
+                            Direction="Row"
+                            HorizontalOptions="FillAndExpand"
+                            JustifyContent="SpaceEvenly"
+                            BindableLayout.ItemsSource="{Binding NEOCollection}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Margin="0,2">
+                                <Frame 
+                                      x:Name="FrameTypes"
+                                      HasShadow="False"
+                                      CornerRadius="30"
+                                      BackgroundColor="DarkBlue">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TypeListSelected"></TapGestureRecognizer>
+                                    </Frame.GestureRecognizers>
+                                    <Grid RowDefinitions="*,*">
+                                        <Label
+                                             Grid.Row="0"
+                                             FontSize="20"
+                                             TextColor="White"
+                                             HorizontalTextAlignment="Start"
+                                             VerticalTextAlignment="Center"
+                                             Margin="5"
+                                             Text="{Binding Name_displayed}"/>
+                                        <Label
+                                             Grid.Row="1"
+                                             FontSize="15"
+                                             TextColor="White"
+                                             HorizontalTextAlignment="Start"
+                                             VerticalTextAlignment="Center"
+                                             Margin="5"
+                                             Text="{Binding Miss_distance_displayed}"/>
+                                    </Grid>
+                                </Frame>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

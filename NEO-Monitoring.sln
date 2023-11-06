@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEO-Monitoring.Android", "NEO-Monitoring.Android\NEO-Monitoring.Android.csproj", "{8AAAB9C3-FA94-4831-8FE2-1AB3659093FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NEO-Monitoring", "NEO-Monitoring\NEO-Monitoring.csproj", "{3DA7163C-7AC9-4884-B623-28AC43C0AB46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AAAB9C3-FA94-4831-8FE2-1AB3659093FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AAAB9C3-FA94-4831-8FE2-1AB3659093FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AAAB9C3-FA94-4831-8FE2-1AB3659093FC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8AAAB9C3-FA94-4831-8FE2-1AB3659093FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AAAB9C3-FA94-4831-8FE2-1AB3659093FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AAAB9C3-FA94-4831-8FE2-1AB3659093FC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3DA7163C-7AC9-4884-B623-28AC43C0AB46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DA7163C-7AC9-4884-B623-28AC43C0AB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DA7163C-7AC9-4884-B623-28AC43C0AB46}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3DA7163C-7AC9-4884-B623-28AC43C0AB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DA7163C-7AC9-4884-B623-28AC43C0AB46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DA7163C-7AC9-4884-B623-28AC43C0AB46}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {933517BE-8FB8-412A-8CE6-8EFCD24BC1D4}
+	EndGlobalSection
+EndGlobal
