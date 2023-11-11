@@ -1,4 +1,5 @@
 ﻿using NEOMonitoring.API;
+using NEOMonitoring.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -13,12 +15,13 @@ namespace NEO_Monitoring
 {
     public partial class MainPage : ContentPage
     {
-        MainPageContent content = new MainPageContent();
+        MainPageContent content = new MainPageContent() { NEOCollection = new List<NearEarthObject>()};
         public MainPage()
         {
+            InitializeComponent();
             BindingContext = content;
             content.Date = DateTime.Today.AddDays(-1);
-            InitializeComponent();
+
         }
         async void TypeListSelected(object sender, EventArgs e)
         {
@@ -57,12 +60,27 @@ namespace NEO_Monitoring
             }
         }
         private List<NearEarthObject> _NEOCollection;
-        public List<NearEarthObject> NEOCollection {
+        public List<NearEarthObject> NEOCollection
+        {
             get => _NEOCollection;
             set
             {
                 _NEOCollection = value;
                 OnPropertyChanged("NEOCollection");
+            }
+        }
+        private NearEarthObject _NEOSelected;
+        public NearEarthObject NEOSelected
+        { 
+            get => _NEOSelected;
+            set 
+            {
+                if (value != null)
+                {
+                    _NEOSelected = null;
+                    OnPropertyChanged("NEOSelected");
+                    Application.Current.MainPage.Navigation.PushAsync(new NEODetail(value));
+                }
             }
         }
         public event PropertyChangedEventHandler PropertyChanged;

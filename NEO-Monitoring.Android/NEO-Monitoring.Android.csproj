@@ -84,7 +84,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Back_Icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NEO-Monitoring\NEO-Monitoring.csproj">
       <Project>{8BDFA7EC-B6AE-4D10-9B41-8F75D0EFE559}</Project>

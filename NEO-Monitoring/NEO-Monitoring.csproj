@@ -21,4 +21,10 @@
   <ItemGroup>
     <Folder Include="Images\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\NEODetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

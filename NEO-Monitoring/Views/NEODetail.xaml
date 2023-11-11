@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NEOMonitoring.Views.NEODetail"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#0B3D91">
+                <Grid ColumnDefinitions="auto,*">
+                    <ImageButton
+                        x:Name="ImgBtnBack"
+                        HeightRequest="20"
+                        BackgroundColor="Transparent"
+                        Source="drawable/Back_Icon.png"
+                        Command="{Binding ImgBtnClicked}"
+                        Grid.Column="0"
+                        />
+                    <Label
+                        Text="{Binding Name}"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        />
+                </Grid>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
