@@ -3,6 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NEO_Monitoring.App">
     <Application.Resources>
-
+        <Color x:Key="NasaBlue">#0B3D91</Color>
+        <Color x:Key="NasaRed">#C5011F</Color>
+        <Color x:Key="NasaGray">#ABABAB</Color>
+        <Style x:Key="InfoHeaderLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Margin" Value="5,0,0,0"/>
+        </Style>
+        <Style x:Key="InfoLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="Margin" Value="20,0,0,0"/>
+        </Style>
+        <Style x:Key="NameLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+        <Style x:Key="InfoFrame" TargetType="Frame">
+            <Setter Property="BackgroundColor" Value="{StaticResource NasaGray}"/>
+            <Setter Property="Margin" Value="5,10,5,0"/>
+            <Setter Property="CornerRadius" Value="22"/>
+            <Setter Property="Padding" Value="10,20"/>
+            <Setter Property="HasShadow" Value="False"/>
+        </Style>
+        <Style x:Key="NasaButton" TargetType="Button">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource NasaBlue}"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="HeightRequest" Value="50"/>
+            <Setter Property="WidthRequest" Value="340"/>
+        </Style>
+        <Style x:Key="NasaLogo" TargetType="Image">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Start"/>
+            <Setter Property="Source" Value="drawable/NASA_Worm_logo.png"/>
+            <Setter Property="Margin" Value="5,7,5,2"/>
+            <Setter Property="HeightRequest" Value="35"/>
+        </Style>
     </Application.Resources>
 </Application>

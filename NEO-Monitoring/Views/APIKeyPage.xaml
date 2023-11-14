@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:NEOMonitoring.CustomComponents"
+             x:Class="NEOMonitoring.Views.APIKeyPage"
+             NavigationPage.HasNavigationBar="False"
+             >
+    <ContentPage.Content>
+        <Grid RowDefinitions="auto,*,auto,auto,auto,*,auto" Padding="0">
+            <Image Style="{StaticResource NasaLogo}" Grid.Row="0"/>
+            <Label Style="{StaticResource InfoHeaderLabel}" Text="Enter your API key" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="2" Margin="0"/>
+            <Frame Padding="0" Grid.Row="3" BorderColor="Black" Margin="50,0">
+                <custom:TextEntry VerticalOptions="Center" Placeholder="Your API key" Text="{Binding EntryText}"/>
+            </Frame>
+            <Label Padding="0" Style="{StaticResource InfoHeaderLabel}" Text="Get NASA API key" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="4" Margin="0" TextColor="{StaticResource NasaBlue}"/>
+            <Button Style="{StaticResource NasaButton}" Text="Add key" Grid.Row="5" VerticalOptions="End" Margin="0,0,0,40" Command="{Binding AddKeyPressed}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

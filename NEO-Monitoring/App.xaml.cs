@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NEOMonitoring.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace NEO_Monitoring
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new APIKeyPage());
         }
 
         protected override void OnStart()

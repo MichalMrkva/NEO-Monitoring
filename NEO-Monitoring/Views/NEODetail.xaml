@@ -4,12 +4,13 @@
              x:Class="NEOMonitoring.Views.NEODetail"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Frame Padding="0" BackgroundColor="#0B3D91">
+        <Grid RowDefinitions="auto,auto,auto,*">
+            <Frame Padding="6" BackgroundColor="{StaticResource NasaBlue}">
                 <Grid ColumnDefinitions="auto,*">
                     <ImageButton
                         x:Name="ImgBtnBack"
                         HeightRequest="50"
+                        WidthRequest="30"
                         Margin="10,0"
                         BackgroundColor="Transparent"
                         Source="drawable/Back_Icon.png"
@@ -17,6 +18,7 @@
                         Grid.Column="0"
                         />
                     <Label
+                        Style="{StaticResource NameLabel}"
                         Text="{Binding Name}"
                         Grid.Column="0"
                         Grid.ColumnSpan="2"
@@ -25,6 +27,29 @@
                         />
                 </Grid>
             </Frame>
-        </StackLayout>
+            <Frame Style="{StaticResource InfoFrame}" Grid.Row="1">
+                <Grid RowDefinitions="*,*">
+                    <Label Style="{StaticResource InfoHeaderLabel}" Text="{Binding ID}" Grid.Row="0"/>
+                    <Label Style="{StaticResource InfoHeaderLabel}" Text="{Binding Time}" Grid.Row="1"/>
+                </Grid>
+            </Frame>
+            <Frame Style="{StaticResource InfoFrame}" Grid.Row="2">
+                <Grid RowDefinitions="*,*,*,*,*,*,*,*,*,*,*,*">
+                    <Label Style="{StaticResource InfoHeaderLabel}" Text="Diameter in kilometers (Estimated):" Grid.Row="0"/>
+                    <Label Style="{StaticResource InfoLabel}" Text="{Binding DiaMin}" Grid.Row="1"/>
+                    <Label Style="{StaticResource InfoLabel}" Text="{Binding DiaMax}" Grid.Row="2"/>
+                    <Label Style="{StaticResource InfoHeaderLabel}" Text="Relative velocity:" Grid.Row="3"/>
+                    <Label Style="{StaticResource InfoLabel}" Text="{Binding RelVelKMS}" Grid.Row="4"/>
+                    <Label Style="{StaticResource InfoLabel}" Text="{Binding RelVelKMH}" Grid.Row="5"/>
+                    <Label Style="{StaticResource InfoHeaderLabel}" Text="Miss distance:" Grid.Row="6"/>
+                    <Label Style="{StaticResource InfoLabel}" Text="{Binding MissAstronomical}" Grid.Row="7"/>
+                    <Label Style="{StaticResource InfoLabel}" Text="{Binding MissLunar}" Grid.Row="8"/>
+                    <Label Style="{StaticResource InfoLabel}" Text="{Binding MissKilometers}" Grid.Row="9"/>
+                    <Label Style="{StaticResource InfoHeaderLabel}" Text="{Binding OrbitingBody}" Grid.Row="10"/>
+                    <Label Style="{StaticResource InfoHeaderLabel}" Text="{Binding IsSentryObject}" Grid.Row="11"/>
+                </Grid>
+            </Frame>
+            <Button Style="{StaticResource NasaButton}" Text="All close approaches" Grid.Row="3"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

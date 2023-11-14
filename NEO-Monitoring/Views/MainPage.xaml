@@ -14,21 +14,17 @@
         >
         <CollectionView.Header>
             <StackLayout>
-                <Image VerticalOptions="Center"
-                       HorizontalOptions="Start"
-                       Source="drawable/NASA_Worm_logo.png"
-                       HeightRequest="35"
-                       Margin="5,5"
+                <Image Style="{StaticResource NasaLogo}"
                     />
                 <DatePicker Date="{Binding Date}"
-                    Background="#d14f4f"
+                    BackgroundColor="{StaticResource NasaRed}"
                     Format="yyyy-MM-dd"
                     TextColor="White"
                     FontFamily="Helvetica Neue"
                     FontSize="30"
                     Margin="5,0,5,10"
                     />
-                <Frame BackgroundColor="#d14f4f"
+                <Frame BackgroundColor="{StaticResource NasaRed}"
                         Margin="5,0"
                         CornerRadius="30">
                     <Label
