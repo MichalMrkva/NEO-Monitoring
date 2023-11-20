@@ -32,6 +32,7 @@ namespace NEOMonitoring.Views
     {
         public string EntryText { get; set; }
         public ICommand AddKeyPressed { get; set; }
+        public ICommand LinkClicked { get; set; }
         public APIKeyPageContent()
         {
             AddKeyPressed = new Command(() =>
@@ -40,6 +41,10 @@ namespace NEOMonitoring.Views
                 {
                     Task.Run(KeyHandler);
                 }
+            });
+            LinkClicked = new Command(async () => 
+            {
+                await Browser.OpenAsync("https://api.nasa.gov/");
             });
         }
         public async Task KeyHandler()
