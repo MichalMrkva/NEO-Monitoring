@@ -5,12 +5,10 @@
              NavigationPage.HasNavigationBar="False">
 
     <CollectionView 
-        x:Name="Main"
-        Background="White"
         ItemsSource="{Binding NEOCollection}"
         SelectedItem="{Binding NEOSelected}"
         SelectionMode="Single"
-        EmptyView="No items to display"
+        EmptyView="Items are loading"
         >
         <CollectionView.Header>
             <StackLayout>

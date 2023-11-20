@@ -1,9 +1,12 @@
-﻿using NEO_Monitoring;
+﻿using Android.Content;
+using Android.Widget;
+using NEO_Monitoring;
 using NEOMonitoring.API;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -20,7 +23,8 @@ namespace NEOMonitoring.Views
         public APIKeyPage()
         {
             content = new APIKeyPageContent();
-            BindingContext = content; 
+            BindingContext = content;
+            
             InitializeComponent();
         }
     }
@@ -42,15 +46,35 @@ namespace NEOMonitoring.Views
         {
             await Task.Run(() =>
             {
-            if (NEOMAPI.IsKeyOK(EntryText))
-            {
-                Preferences.Set("APIKey", EntryText);
-                Application.Current.Dispatcher.BeginInvokeOnMainThread(new Action(() => Application.Current.MainPage = new NavigationPage(new MainPage())));
-            
+                var response = NEOMAPI.KeyStatus(EntryText);
+                if (response == HttpStatusCode.OK)
+                {
+                    Preferences.Set("APIKey", EntryText);
+                    Preferences.Set("Loged", true);
+                    
+                    Application.Current.Dispatcher.BeginInvokeOnMainThread(new Action(() => 
+                    {
+                        Toast.MakeText(Android.App.Application.Context, "Key is OK", ToastLength.Short).Show();
+                        Application.Current.MainPage = new NavigationPage(new MainPage()); 
+                    }));
+
                 }
+                if (response == HttpStatusCode.Forbidden)
+                    Application.Current.Dispatcher.BeginInvokeOnMainThread(new Action(() =>
+                    {
+                        Toast.MakeText(Android.App.Application.Context, "Key is not valid", ToastLength.Short).Show();
+                    }));
+                if (response == HttpStatusCode.ServiceUnavailable)
+                    Application.Current.Dispatcher.BeginInvokeOnMainThread(new Action(() =>
+                    {
+                        Toast.MakeText(Android.App.Application.Context, "Server is not online", ToastLength.Short).Show();
+                    }));
                 else
                 {
-
+                    Application.Current.Dispatcher.BeginInvokeOnMainThread(new Action(() =>
+                    {
+                        Toast.MakeText(Android.App.Application.Context, "Unknown error", ToastLength.Short).Show();
+                    }));
                 }
             });
         }

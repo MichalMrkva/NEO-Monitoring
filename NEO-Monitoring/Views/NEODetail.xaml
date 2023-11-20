@@ -49,7 +49,7 @@
                     <Label Style="{StaticResource InfoHeaderLabel}" Text="{Binding IsSentryObject}" Grid.Row="11"/>
                 </Grid>
             </Frame>
-            <Button Style="{StaticResource NasaButton}" Text="All close approaches" Grid.Row="3"/>
+            <Button Style="{StaticResource NasaButton}" Command="{Binding AllCAClicked}" Text="All close approaches" Grid.Row="3" VerticalOptions="End" Margin="0,0,0,40"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

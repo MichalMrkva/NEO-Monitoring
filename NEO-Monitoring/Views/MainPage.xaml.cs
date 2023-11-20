@@ -15,21 +15,15 @@ namespace NEO_Monitoring
 {
     public partial class MainPage : ContentPage
     {
-        MainPageContent content = new MainPageContent() { NEOCollection = new List<NearEarthObject>()};
+        MainPageContent content;
         public MainPage()
         {
+            content = new MainPageContent();
+            content.NEOCollection = new List<NearEarthObject>();
             InitializeComponent();
             BindingContext = content;
             content.Date = DateTime.Today.AddDays(-1);
 
-        }
-        async void TypeListSelected(object sender, EventArgs e)
-        {
-            await Task.Run(() =>
-            {
-                var frame = (Frame)sender;
-                var item = (NearEarthObject)frame.BindingContext;
-            });
         }
     }
     class MainPageContent : INotifyPropertyChanged

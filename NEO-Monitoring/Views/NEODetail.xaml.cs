@@ -21,6 +21,10 @@ namespace NEOMonitoring.Views
         public NEODetailContent(NearEarthObject selectedNEO) 
         {
             NEO = selectedNEO;
+            AllCAClicked = new Command(() =>
+            {
+                Application.Current.MainPage.Navigation.PushAsync(new AllCloseApproaches(selectedNEO));
+            });
         }
         public string Name { get => NEO.Name; }
         public string ID { get => "ID: " + NEO.Id; }
@@ -34,6 +38,7 @@ namespace NEOMonitoring.Views
         public string MissKilometers { get => "Kilometers: " + NEO.Close_approach_data[0].Miss_distance.Kilometers; }
         public string OrbitingBody { get => "Orbiting body: " + NEO.Close_approach_data[0].Orbiting_body; }
         public string IsSentryObject { get => "Is sentry object: " + NEO.Is_sentry_object; }
+        public ICommand AllCAClicked { get; set; }
         public ICommand ImgBtnClicked { get; set; } = new Command(() => 
         { 
             Application.Current.MainPage.Navigation.PopAsync();

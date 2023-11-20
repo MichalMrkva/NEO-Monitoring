@@ -4,7 +4,6 @@ using System.Text;
 
 namespace NEOMonitoring.API
 {
-
     public class Links
     {
         public string Next { get; set; }
@@ -96,7 +95,13 @@ namespace NEOMonitoring.API
         public Links Links { get; set; }
         public int Element_count { get; set; }
         public Dictionary<string, List<NearEarthObject>> Near_earth_objects { get; set; }
-        
     }
 
+    public class FormatedApproachData
+    {
+        public string Date { get; set; }
+        public string DateDisplayed { get => "Date: "+ Date; }
+        public string MissDistance { get; set; }
+        public string MissDistanceDisplayed { get => "Miss distance in km: " + MissDistance; }
+    }
 }

@@ -32,7 +32,9 @@ namespace NEO_Monitoring.Droid
             {
                 GradientDrawable gd = new GradientDrawable();
                 gd.SetColor(global::Android.Graphics.Color.Transparent);
+#pragma warning disable CS0618
                 Control.SetBackgroundDrawable(gd);
+#pragma warning restore CS0618
                 if (Build.VERSION.SdkInt >= BuildVersionCodes.Q)
                 {
                     Control.SetTextCursorDrawable(Resource.Drawable.BlackEntryCursor);
