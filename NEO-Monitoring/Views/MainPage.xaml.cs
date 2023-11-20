@@ -1,5 +1,7 @@
-﻿using NEOMonitoring.API;
+﻿using Android.Widget;
+using NEOMonitoring.API;
 using NEOMonitoring.Views;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,15 +89,41 @@ namespace NEO_Monitoring
             await Task.Run(() =>
             {
                 var NEOs = NEOMAPI.GetNEO(fromDate, toDate);
-                Element_count_displayed = NEOs.Element_count.ToString();
                 var list = new List<NearEarthObject>();
-                foreach (var obj in NEOs.Near_earth_objects)
+                if (NEOs != null)
                 {
-                    foreach (var item in obj.Value)
+                    Element_count_displayed = NEOs.Element_count.ToString();
+                    foreach (var obj in NEOs.Near_earth_objects)
                     {
-                        list.Add(item);
+                        foreach (var item in obj.Value)
+                        {
+                            list.Add(item);
+                        }
+                        break;
                     }
-                    break;
+
+                }
+                else
+                {
+                    string[] lastload = NEOMAPI.LastLoadGet();
+                    if (lastload != null)
+                        if (lastload[0] != null)
+                        {
+                            _date = DateTime.Parse(lastload[0]);
+                            OnPropertyChanged("Date");
+                            NEOs = JsonConvert.DeserializeObject<NearEarthObjects>(lastload[1]);
+                            Element_count_displayed = NEOs.Element_count.ToString();
+                            foreach (var obj in NEOs.Near_earth_objects)
+                            {
+                                foreach (var item in obj.Value)
+                                {
+                                    list.Add(item);
+                                }
+                                break;
+                            }
+                            Toast.MakeText(Android.App.Application.Context, "Aktuální data nejdou načíst", ToastLength.Short).Show();
+                        }
+                    Toast.MakeText(Android.App.Application.Context, "Unknown error", ToastLength.Short).Show();
                 }
                 NEOCollection = null;
                 NEOCollection = list;

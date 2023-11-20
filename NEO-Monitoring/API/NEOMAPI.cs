@@ -39,7 +39,6 @@ namespace NEOMonitoring.API
         public static string[] LastLoadGet()
         {
             return new string[] { Preferences.Get("LastLoadContent", null), Preferences.Get("lastLoadDate", null)};
-
         }
         public static NearEarthObjects GetNEO(DateTime fromDate, DateTime toDate)
         {

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NEO_Monitoring.MainPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              NavigationPage.HasNavigationBar="False">
 
     <CollectionView 
@@ -23,7 +24,7 @@
                     Margin="5,0,5,10"
                     />
                 <Frame BackgroundColor="{StaticResource NasaRed}"
-                        Margin="5,0"
+                        Margin="5,0,5,15"
                         CornerRadius="30">
                     <Label
                          Text="{Binding Element_count_displayed}"
@@ -35,8 +36,12 @@
         </CollectionView.Header>
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <StackLayout Padding="10">
-                    <Frame 
+                <StackLayout 
+                    Padding="10,5"
+                    xct:TouchEffect.AnimationDuration="100"
+                    xct:TouchEffect.AnimationEasing="{x:Static Easing.CubicInOut}"
+                    xct:TouchEffect.PressedScale="0.75">
+                    <Frame
                         x:Name="FrameTypes"
                         HasShadow="False"
                         CornerRadius="30"
