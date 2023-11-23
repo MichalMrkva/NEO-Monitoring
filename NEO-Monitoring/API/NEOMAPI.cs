@@ -70,7 +70,11 @@ namespace NEOMonitoring.API
                 NearEarthObject neo = JsonConvert.DeserializeObject<NearEarthObject>(json);
                 return neo.Close_approach_data;
             }
-            return null;
+            else
+            {
+                Application.Current.Dispatcher.BeginInvokeOnMainThread(new Action(() => { Toast.MakeText(Android.App.Application.Context, result.StatusCode.ToString(), ToastLength.Short).Show(); }));
+                return null;
+            }
         }
         public static HttpStatusCode KeyStatus(string key)
         {
