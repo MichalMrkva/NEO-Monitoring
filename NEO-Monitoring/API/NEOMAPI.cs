@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
 namespace NEOMonitoring.API
 {
@@ -51,14 +52,9 @@ namespace NEOMonitoring.API
                 NearEarthObjects neo = JsonConvert.DeserializeObject<NearEarthObjects>(json);
                 return neo;
             }
-            if (result.StatusCode == HttpStatusCode.ServiceUnavailable)
-            {
-                Toast.MakeText(Android.App.Application.Context, "Server is down", ToastLength.Short).Show();
-                return null;
-            }
             else
             {
-                Toast.MakeText(Android.App.Application.Context, "Unknown error", ToastLength.Short).Show();
+                Application.Current.Dispatcher.BeginInvokeOnMainThread(new Action(() => { Toast.MakeText(Android.App.Application.Context, result.StatusCode.ToString(), ToastLength.Short).Show(); }));
                 return null;
             }
             
