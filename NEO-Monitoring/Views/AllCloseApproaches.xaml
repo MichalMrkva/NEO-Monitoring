@@ -5,7 +5,7 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
-            <Frame Padding="6" BackgroundColor="{StaticResource NasaBlue}">
+            <Frame Padding="6" BackgroundColor="{StaticResource NasaBlue}" Margin="0">
                 <Grid ColumnDefinitions="auto,*">
                     <ImageButton
                         x:Name="ImgBtnBack"

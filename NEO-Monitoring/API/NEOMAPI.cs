@@ -43,7 +43,7 @@ namespace NEOMonitoring.API
         }
         public static NearEarthObjects GetNEO(DateTime fromDate, DateTime toDate)
         {
-            Uri endpoint = new Uri($"https://api.nasa.gov/neo/rest/v1/feed?start_date={fromDate.ToString("yyyy-MM-dd")}&end_date={toDate.ToString("yyyy-MM-dd")}&api_key={APIKey}");
+            Uri endpoint = new Uri($"https://api.nasa.gov/neo/rest/v1/feed?start_date={fromDate:yyyy-MM-dd}&end_date={toDate:yyyy-MM-dd}&api_key={APIKey}");
             var result = client.GetAsync(endpoint).Result;
             if (result.StatusCode == HttpStatusCode.OK)
             {
@@ -57,7 +57,6 @@ namespace NEOMonitoring.API
                 Application.Current.Dispatcher.BeginInvokeOnMainThread(new Action(() => { Toast.MakeText(Android.App.Application.Context, result.StatusCode.ToString(), ToastLength.Short).Show(); }));
                 return null;
             }
-            
         }
         public static List<CloseApproachData> GetCloseApproachData(string url)
         {

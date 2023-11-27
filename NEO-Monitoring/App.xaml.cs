@@ -1,5 +1,9 @@
-﻿using NEOMonitoring.Views;
+﻿using Android.Content.Res;
+using Android.Widget;
+using NEOMonitoring.Views;
+using Plugin.Connectivity;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,7 +20,6 @@ namespace NEO_Monitoring
             else
                 MainPage = new APIKeyPage();
         }
-
         protected override void OnStart()
         {
         }
